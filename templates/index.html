@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask and Glasses Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        #video-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        #video-container img {
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            background-color: #fff;
+        }
+        #controls {
+            margin-top: 10px;
+        }
+        #results {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .result {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time Mask and Glasses Detection</h1>
+    <div id="video-container">
+        <img id="video-feed" src="{{ url_for('video_feed') }}" width="640" height="480" style="display:none;">
+        <div id="controls">
+            <button id="start-button" onclick="startCamera()">Start Camera</button>
+        </div>
+    </div>
+
+    <script>
+        function startCamera() {
+            document.getElementById('video-feed').style.display = 'block';
+            document.getElementById('start-button').disabled = true;
+        }
+
+    </script>
+</body>
+</html>
